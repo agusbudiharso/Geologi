@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tulisan & Publikasi | Agus Santoso Budiharso</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#243746;background:#fff}
+.wrap{max-width:1180px;margin:auto;padding:34px 20px 60px}
+.hero{padding:28px;border:1px solid #dfe7ee;border-radius:18px;background:#f6fafc;margin-bottom:20px}
+.hero h1{margin:0 0 8px;color:#17324d}.hero p{margin:0;color:#687785;line-height:1.6}
+.tools{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:20px 0}
+#search{padding:12px 14px;border:1px solid #ccd9e2;border-radius:10px;font-size:15px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{border:1px solid #cbd7df;background:#fff;padding:9px 12px;border-radius:999px;cursor:pointer}
+.filters button.active{background:#1e5a86;color:#fff;border-color:#1e5a86}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px}
+.card{border:1px solid #dfe7ee;border-radius:15px;padding:18px;display:flex;flex-direction:column;min-height:205px}
+.meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.tag{font-size:12px;background:#edf4f8;color:#31566f;padding:5px 8px;border-radius:999px}
+.card h3{margin:0 0 10px;color:#17324d;font-size:18px;line-height:1.35}
+.source{color:#687785;font-size:14px;line-height:1.45;margin-bottom:15px}
+.card a{margin-top:auto;color:#1e5a86;text-decoration:none;font-weight:700}
+.back{display:inline-block;margin-top:26px;color:#1e5a86;text-decoration:none;font-weight:700}
+@media(max-width:700px){.tools{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>Tulisan & Publikasi</h1>
+<p>Jejak karya ilmiah, tulisan populer, geologi–geospasial–kebencanaan, filantropi dan keagamaan, serta karya media. Gunakan pencarian dan filter kategori untuk menemukan karya.</p>
+</section>
+
+<div class="tools">
+<input id="search" type="search" placeholder="🔎 Cari judul, media, topik, atau tahun...">
+<div><span id="count">0</span> karya ditampilkan</div>
+</div>
+
+<div class="filters">
+<button class="active" data-filter="semua">Semua</button>
+<button data-filter="jurnal">Jurnal Ilmiah</button>
+<button data-filter="geo">Geologi & Geospasial</button>
+<button data-filter="bencana">Kebencanaan</button>
+<button data-filter="islam">Filantropi & Keagamaan</button>
+<button data-filter="opini">Opini & Kebangsaan</button>
+<button data-filter="media">Media & Video</button>
+</div>
+
+<main class="grid" id="grid">
+
+<article class="card" data-category="jurnal bencana geo">
+<div class="meta"><span class="tag">2023</span><span class="tag">Jurnal Ilmiah</span></div>
+<h3>Kajian Topographic Wetness Index (TWI) untuk Mengetahui Potensi Bahaya Banjir di Kota Manado</h3>
+<div class="source">Journal Geological Processes, Risks, and Integrated Spatial Modeling</div>
+<a href="https://www.jurnal.prisma.ac.id/index.php/jgprism/article/view/73" target="_blank" rel="noopener">Lihat Publikasi →</a>
+</article>
+
+<article class="card" data-category="jurnal geo">
+<div class="meta"><span class="tag">2024</span><span class="tag">Jurnal Ilmiah</span></div>
+<h3>Region Geology of Minawerot and Surroundings, Kauditan District, North Minahasa District, North Sulawesi</h3>
+<div class="source">Journal Geological Processes, Risks, and Integrated Spatial Modeling</div>
+<a href="https://jurnal.prisma.ac.id/index.php/jgprism/article/view/274" target="_blank" rel="noopener">Lihat Publikasi →</a>
+</article>
+
+<article class="card" data-category="islam bencana geo">
+<div class="meta"><span class="tag">2025</span><span class="tag">Zakat & GIS</span></div>
+<h3>Model Distribusi Zakat Berbasis GIS untuk Bantuan Bencana: Pendekatan Analitis</h3>
+<div class="source">Majelis Tabligh Muhammadiyah</div>
+<a href="https://majelistabligh.id/model-distribusi-zakat-berbasis-gis-untuk-bantuan-bencana-pendekatan-analitis/" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="islam opini">
+<div class="meta"><span class="tag">2025</span><span class="tag">Pembangunan & Etika</span></div>
+<h3>Menjaga Harmoni dalam Pembangunan: Keseimbangan antara Hubungan dengan Tuhan, Manusia dan Alam</h3>
+<div class="source">Majelis Tabligh Muhammadiyah</div>
+<a href="https://majelistabligh.id/menjaga-harmoni-dalam-pembangunan-keseimbangan-antara-hubungan-dengan-tuhan-manusia-dan-alam/" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="islam">
+<div class="meta"><span class="tag">2025</span><span class="tag">Sunnah & Refleksi</span></div>
+<h3>Sunnah: Obat Jiwa di Tengah Dunia yang Bising</h3>
+<div class="source">Majelis Tabligh Muhammadiyah</div>
+<a href="https://majelistabligh.id/sunnah-obat-jiwa-di-tengah-dunia-yang-bising/" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="islam">
+<div class="meta"><span class="tag">2025</span><span class="tag">Dakwah</span></div>
+<h3>Menembus Hening Hutan Menyalakan Cahaya Tauhid: Semangat Dakwah dari Morowali</h3>
+<div class="source">Majelis Tabligh Muhammadiyah</div>
+<a href="https://majelistabligh.id/menembus-hening-hutan-menyalakan-cahaya-tauhid-semangat-dakwah-dari-morowali/" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="geo">
+<div class="meta"><span class="tag">2026</span><span class="tag">Mineral Strategis</span></div>
+<h3>Membaca Ulang Sulawesi Utara: dari Sabuk Emas-Tembaga ke Jejak Tanah Jarang</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/sulut/pr-23610189451/membaca-ulang-sulawesi-utara-dari-sabuk-emas-tembaga-ke-jejak-tanah-jarang" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="geo opini">
+<div class="meta"><span class="tag">2026</span><span class="tag">Tata Ruang</span></div>
+<h3>Manado Mau Dibawa ke Mana? Membaca RTRW sebagai Peta Masa Depan Warga</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/manadoku/pr-23610215992/manado-mau-dibawa-ke-mana-membaca-rtrw-sebagai-peta-masa-depan-warga" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="geo">
+<div class="meta"><span class="tag">2026</span><span class="tag">GIS & Kepulauan</span></div>
+<h3>Transportasi Laut Berbasis GIS untuk Keadilan Masyarakat Kepulauan</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/ragam/pr-23610337374/transportasi-laut-berbasis-gis-untuk-keadilan-masyarakat-kepulauan" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="bencana geo">
+<div class="meta"><span class="tag">2026</span><span class="tag">Kegempaan</span></div>
+<h3>Kegempaan Sulawesi dan Keselamatan Aset Pembangunan</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/manadoku/pr-23610314201/kegempaan-sulawesi-dan-keselamatan-aset-pembangunan?page=all" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="geo">
+<div class="meta"><span class="tag">2026</span><span class="tag">Geomedicine</span></div>
+<h3>Geomedicine: Ketika Tempat Menjadi Bagian dari Persoalan Kesehatan</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/ragam/pr-23610391576/geomedicine-ketika-tempat-menjadi-bagian-dari-persoalan-kesehatan" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="opini">
+<div class="meta"><span class="tag">2026</span><span class="tag">Demokrasi</span></div>
+<h3>Demokrasi dan Ruang Hidup Bangsa: Belajar dari Turki, Merenungi Indonesia</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/nasional/pr-23610200048/demokrasi-dan-ruang-hidup-bangsa-belajar-dari-turki-merenungi-indonesia" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="opini">
+<div class="meta"><span class="tag">2026</span><span class="tag">Politik & Generasi</span></div>
+<h3>Dari Ideologi ke Kapital, dari Generasi Perjuangan ke Generasi Digital: Ke Mana Arah Politik Indonesia?</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/ragam/pr-23610043340/dari-ideologi-ke-kapital-dari-generasi-perjuangan-ke-generasi-digital-ke-mana-arah-politik-indonesia" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="geo bencana">
+<div class="meta"><span class="tag">2025</span><span class="tag">Geomorfologi & Kota</span></div>
+<h3>Membaca Alam untuk Kota Masa Depan: Kota Modern, Geomorfologi, dan Pelajaran dari Bencana Sumatera</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/nasional/pr-2369867191/membaca-alam-untuk-kota-masa-depan-kota-modern-geomorfologi-dan-pelajaran-dari-bencana-sumatera" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="geo">
+<div class="meta"><span class="tag">2025</span><span class="tag">Remote Sensing & GIS</span></div>
+<h3>Dari Langit untuk Bumi: Remote Sensing-GIS dalam Perencanaan IKN</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/nasional/pr-2369672664/dari-langit-untuk-bumi-remote-sensing-gis-dalam-perencanaan-ikn" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="geo opini">
+<div class="meta"><span class="tag">2025</span><span class="tag">Pendidikan Geografi</span></div>
+<h3>Geografi Wajib untuk Semua: Menjaga NKRI dan Generasi Masa Depan</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/nasional/pr-2369629967/geografi-wajib-untuk-semua-menjaga-nkri-dan-generasi-masa-depan" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="bencana geo">
+<div class="meta"><span class="tag">2025</span><span class="tag">Banjir & Geospasial</span></div>
+<h3>Permasalahan Banjir di Kota Manado: Sinergitas Hulu-Hilir dan Pendekatan Teknologi Geospasial</h3>
+<div class="source">Manadoku / Pikiran Rakyat</div>
+<a href="https://manado.pikiran-rakyat.com/manadoku/pr-2369185722/permasalahan-banjir-di-kota-manado-sinergitas-hulu-hilir-dan-pendekatan-teknologi-geospasial?page=all" target="_blank" rel="noopener">Baca Artikel →</a>
+</article>
+
+<article class="card" data-category="media">
+<div class="meta"><span class="tag">Media</span><span class="tag">YouTube & Wawancara</span></div>
+<h3>Wawancara, Webinar, dan Video</h3>
+<div class="source">Bagian ini sudah disiapkan untuk penambahan video YouTube, wawancara TV, Tribun Manado, webinar, dan rekaman media lainnya.</div>
+<a href="#" onclick="return false;">Akan dilengkapi →</a>
+</article>
+
+</main>
+<a class="back" href="index.html">← Kembali ke Beranda</a>
+</div>
+
+<script>
+const cards=[...document.querySelectorAll('.card')];
+const buttons=[...document.querySelectorAll('.filters button')];
+const search=document.getElementById('search');
+const count=document.getElementById('count');
+let active='semua';
+
+function refresh(){
+  const q=search.value.trim().toLowerCase();
+  let n=0;
+  cards.forEach(card=>{
+    const cats=(card.dataset.category||'').split(' ');
+    const okCat=active==='semua'||cats.includes(active);
+    const okText=!q||card.innerText.toLowerCase().includes(q);
+    const show=okCat&&okText;
+    card.style.display=show?'flex':'none';
+    if(show)n++;
+  });
+  count.textContent=n;
+}
+buttons.forEach(btn=>btn.addEventListener('click',()=>{
+  buttons.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  active=btn.dataset.filter;
+  refresh();
+}));
+search.addEventListener('input',refresh);
+refresh();
+</script>
+</body>
+</html>
