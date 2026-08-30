@@ -1,0 +1,47 @@
+
+:root{
+  --navy:#082544;--navy2:#0c355c;--blue:#1568b3;--gold:#ffc83d;
+  --green:#208c73;--text:#172536;--muted:#687787;--bg:#f7f9fb;--line:#e1e7ec;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--text);background:white;line-height:1.6}
+a{color:inherit}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+.topbar{position:sticky;top:0;z-index:20;background:var(--navy);color:white;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:white}
+.brand img{width:54px;height:54px;object-fit:contain;background:white;border-radius:9px;padding:4px}
+.brand strong{display:block;font-size:1.08rem}.brand span{display:block;font-size:.85rem;color:#dce8f2}
+nav{display:flex;align-items:center;gap:18px} nav a{text-decoration:none;font-size:.92rem;color:#e8f0f7}
+nav a:hover{color:white}.siakad{background:var(--gold);color:#082544;padding:9px 13px;border-radius:8px;font-weight:800}
+.hero{background:linear-gradient(135deg,#0a2b4d,#145c83);color:white;padding:58px 0}
+.hero-grid{display:grid;grid-template-columns:430px 1fr;gap:46px;align-items:center}
+.portrait-wrap{border:4px solid rgba(255,255,255,.8);border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.22)}
+.portrait{display:block;width:100%;height:410px;object-fit:cover}
+.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:2px;color:var(--green)}
+.eyebrow.light{color:#bfe9df}
+.hero h1{font-size:clamp(2.1rem,4.2vw,4rem);line-height:1.04;margin:8px 0 8px;letter-spacing:-1.4px}
+.hero h2{color:var(--gold);margin:0}.univ{font-weight:700;font-size:1.2rem;margin:4px 0 16px}
+.bio-lines{display:grid;gap:6px;margin:14px 0}.bio-lines a{color:white;text-decoration:none}
+.lead{max-width:760px;color:#e6eef5}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:11px 17px;border-radius:9px;text-decoration:none;font-weight:800}
+.primary{background:var(--gold);color:#082544}.ghost{border:1px solid rgba(255,255,255,.45);color:white}
+.section{padding:72px 0}.soft{background:var(--bg)}
+.section h2{font-size:2rem;margin:4px 0 6px}.section-desc{color:var(--muted);margin-top:0}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.course-card,.info-card,.download-box,.publication-item{border:1px solid var(--line);background:white;border-radius:15px;box-shadow:0 7px 20px rgba(22,48,75,.05)}
+.course-card{padding:22px}.course-icon{font-size:2rem}.course-card h3{margin:10px 0 6px}.course-card p{color:var(--muted)}
+.link-btn{color:var(--blue);font-weight:800;text-decoration:none}
+.three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.info-card{padding:24px}.bigicon{font-size:2rem}
+.publication-banner{display:flex;justify-content:space-between;align-items:center;gap:30px;background:#eef5fb;border:1px solid #dce8f2;border-radius:16px;padding:28px}
+footer{background:var(--navy);color:#d9e6f1;padding:28px 0}.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.footer-brand{display:flex;align-items:center;gap:12px}.footer-brand img{width:58px;height:58px;object-fit:contain;background:white;border-radius:8px;padding:3px}
+.footer-brand strong,.footer-brand span{display:block}footer a{color:#fff;text-decoration:none}
+.page{padding:48px 0 80px;background:#f8fafc;min-height:70vh}.page-head{max-width:800px;margin-bottom:32px}.page-head h1{font-size:2.7rem;margin:5px 0}
+.course-section{background:white;border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:24px}
+.course-section h2{margin:3px 0}.course-section p{color:var(--muted)}
+.download-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.download-box{padding:20px}
+.file-list{display:grid;gap:9px}.file-list a{padding:10px 12px;background:#f4f8fb;border-radius:8px;color:var(--blue);text-decoration:none;font-weight:700}
+.publication-list{display:grid;gap:16px}.publication-item{display:flex;gap:18px;padding:22px}.pub-icon{font-size:2.2rem}.tag{font-size:.76rem;font-weight:800;color:var(--green)}
+code{background:#eef2f5;padding:2px 6px;border-radius:5px}
+@media(max-width:900px){nav{display:none}.hero-grid{grid-template-columns:1fr}.portrait-wrap{max-width:480px}.course-grid,.three-grid,.download-columns{grid-template-columns:1fr}.publication-banner,.footer-grid{align-items:flex-start;flex-direction:column}}
