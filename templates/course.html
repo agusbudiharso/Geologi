@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.name }} | {{ profile.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container nav-wrap">
+        <a class="brand" href="{{ url_for('home') }}">GEO<span>LECTURER</span></a>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">{{ "Home" if lang == "en" else "Beranda" }}</a>
+            <a href="{{ url_for('writings') }}">{{ "Writings" if lang == "en" else "Tulisan" }}</a>
+            <a href="{{ profile.siakad }}" target="_blank">SIAKAD Prisma ↗</a>
+            <span class="lang-switch"><a class="{{ 'active' if lang == 'id' else '' }}" href="{{ url_for('set_language', lang='id', next=request.full_path) }}">🇮🇩 ID</a><b>|</b><a class="{{ 'active' if lang == 'en' else '' }}" href="{{ url_for('set_language', lang='en', next=request.full_path) }}">🇬🇧 EN</a></span>
+            {% if admin_logged_in %}
+            <a class="admin-link" href="{{ url_for('admin_logout') }}">{{ "Admin Logout" if lang == "en" else "Keluar Admin" }}</a>
+            {% else %}
+            <a class="admin-link" href="{{ url_for('admin_login', next=request.path) }}">{{ "Lecturer Login" if lang == "en" else "Login Dosen" }}</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container flash-wrap">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<main class="course-page">
+<div class="container">
+    <div class="course-hero">
+        <div class="big-icon">{{ course.icon }}</div>
+        <div>
+            <span class="eyebrow">{{ "COURSE" if lang == "en" else "MATA KULIAH" }}</span>
+            <h1>{{ course.name }}</h1>
+            <p>{{ course.desc }}</p>
+        </div>
+    </div>
+
+    <section class="content-card">
+        <div class="heading-row">
+            <div>
+                <span class="eyebrow">{{ "COURSE DOCUMENT" if lang == "en" else "DOKUMEN KULIAH" }}</span>
+                <h2>{{ "Semester Learning Plan (RPS)" if lang == "en" else "Rencana Pembelajaran Semester (RPS)" }}</h2>
+            </div>
+        </div>
+
+        {% if rps_files %}
+        <div class="download-list">
+            {% for item in rps_files %}
+            <div class="download-item">
+                <div class="file-icon">📘</div>
+                <div class="grow">
+                    <h3>{{ item.title }}</h3>
+                    <p>
+                        {% if item.semester %}{{ item.semester }} • {% endif %}
+                        {{ "Uploaded" if lang == "en" else "Diunggah" }} {{ item.uploaded_at }}
+                    </p>
+                </div>
+                <a class="btn small primary" href="{{ url_for('download_file', category='rps', filename=item.stored_name) }}">Download</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-box">{{ "The semester learning plan has not been uploaded yet." if lang == "en" else "RPS belum diunggah." }}</div>
+        {% endif %}
+
+        {% if admin_logged_in %}
+        <form class="upload-form" action="{{ url_for('upload_rps', slug=course.slug) }}" method="post" enctype="multipart/form-data">
+            <h3>Upload RPS</h3>
+            <div class="form-grid">
+                <input type="text" name="title" placeholder="Judul RPS">
+                <input type="text" name="semester" placeholder="Contoh: Semester Genap 2026/2027">
+                <input class="full" type="file" name="file" required>
+            </div>
+            <button class="btn primary" type="submit">Upload RPS</button>
+        </form>
+        {% endif %}
+    </section>
+
+    <section class="content-card top-space">
+        <span class="eyebrow">{{ "STUDENT MATERIALS" if lang == "en" else "MATERI MAHASISWA" }}</span>
+        <h2>{{ "Teaching Materials" if lang == "en" else "Bahan Ajar" }}</h2>
+
+        {% if materials %}
+        <div class="download-list">
+            {% for item in materials %}
+            <div class="download-item">
+                <div class="file-icon">📄</div>
+                <div class="grow">
+                    <span class="meta">{% if item.meeting %}{{ item.meeting }}{% else %}{{ "Teaching Material" if lang == "en" else "Bahan Ajar" }}{% endif %}</span>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                    <small>{{ "Uploaded" if lang == "en" else "Diunggah" }} {{ item.uploaded_at }}</small>
+                </div>
+                <a class="btn small primary" href="{{ url_for('download_file', category='materials', filename=item.stored_name) }}">Download</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-box">{{ "No teaching materials have been uploaded yet." if lang == "en" else "Belum ada bahan ajar yang diunggah." }}</div>
+        {% endif %}
+
+        {% if admin_logged_in %}
+        <form class="upload-form" action="{{ url_for('upload_material', slug=course.slug) }}" method="post" enctype="multipart/form-data">
+            <h3>Upload Bahan Ajar</h3>
+            <div class="form-grid">
+                <input type="text" name="title" placeholder="Judul bahan ajar" required>
+                <input type="text" name="meeting" placeholder="Contoh: Pertemuan 1">
+                <textarea class="full" name="description" placeholder="Keterangan singkat bahan ajar"></textarea>
+                <input class="full" type="file" name="file" required>
+            </div>
+            <button class="btn primary" type="submit">Upload Bahan Ajar</button>
+        </form>
+        {% endif %}
+    </section>
+</div>
+</main>
+</body>
+</html>

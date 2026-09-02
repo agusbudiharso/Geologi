@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name }} | {{ "Geological Engineering Lecturer Portal" if lang == "en" else "Portal Dosen Teknik Geologi" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container nav-wrap">
+        <a class="brand" href="{{ url_for('home') }}">GEO<span>LECTURER</span></a>
+        <div class="nav-links">
+            <a href="#profil">{{ "Profile" if lang == "en" else "Profil" }}</a>
+            <a href="#matakuliah">{{ "Courses" if lang == "en" else "Mata Kuliah" }}</a>
+            <a href="{{ url_for('writings') }}">{{ "Writings" if lang == "en" else "Tulisan" }}</a>
+            <a href="{{ profile.siakad }}" target="_blank" rel="noopener">SIAKAD Prisma ↗</a>
+            <span class="lang-switch"><a class="{{ 'active' if lang == 'id' else '' }}" href="{{ url_for('set_language', lang='id', next=request.full_path) }}">🇮🇩 ID</a><b>|</b><a class="{{ 'active' if lang == 'en' else '' }}" href="{{ url_for('set_language', lang='en', next=request.full_path) }}">🇬🇧 EN</a></span>
+            {% if admin_logged_in %}
+            <a class="admin-link" href="{{ url_for('admin_logout') }}">{{ "Admin Logout" if lang == "en" else "Keluar Admin" }}</a>
+            {% else %}
+            <a class="admin-link" href="{{ url_for('admin_login') }}">{{ "Lecturer Login" if lang == "en" else "Login Dosen" }}</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container flash-wrap">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<header class="hero" id="profil">
+    <div class="container hero-grid">
+        <div>
+            <div class="badge">{{ "LECTURER ACADEMIC PORTAL" if lang == "en" else "PORTAL AKADEMIK DOSEN" }}</div>
+            <h1>{{ profile.name }}</h1>
+            <h2>{{ profile.role }}</h2>
+            <p class="university">{{ profile.university }}</p>
+            <p class="lead">
+                {{ "An academic learning and documentation portal supporting teaching, research, community service, and professional academic activities." if lang == "en" else "Portal pembelajaran dan dokumentasi akademik untuk mendukung perkuliahan, penelitian, pengabdian masyarakat, serta kegiatan penunjang." }}
+            </p>
+            <div class="hero-buttons">
+                <a class="btn primary" href="#matakuliah">{{ "Courses" if lang == "en" else "Mata Kuliah" }}</a>
+                <a class="btn secondary" href="{{ url_for('writings') }}">{{ "Writings & Publications" if lang == "en" else "Tulisan & Publikasi" }}</a>
+                <a class="btn secondary" href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+            </div>
+        </div>
+        <div class="geo-card">
+            <div class="earth">🌎</div>
+            <h3>Geoscience & Geospatial</h3>
+            <p>{{ profile.tagline }}</p>
+            <div class="mini-grid">
+                <span>GIS</span><span>RS</span><span>GEOLOGY</span><span>DRR</span>
+            </div>
+            <a class="siakad-card" href="{{ profile.siakad }}" target="_blank" rel="noopener">
+                {{ "Open Prisma SIAKAD →" if lang == "en" else "Buka SIAKAD Prisma →" }}
+            </a>
+        </div>
+    </div>
+</header>
+
+<section class="section" id="matakuliah">
+    <div class="container">
+        <div class="section-heading">
+            <span>{{ "TEACHING" if lang == "en" else "PEMBELAJARAN" }}</span>
+            <h2>{{ "Courses Taught" if lang == "en" else "Mata Kuliah yang Diampu" }}</h2>
+            <p>{{ "Each course has a dedicated page for the semester learning plan and teaching materials available for students to download." if lang == "en" else "Setiap mata kuliah memiliki halaman untuk RPS dan bahan ajar yang dapat diunduh mahasiswa." }}</p>
+        </div>
+        <div class="card-grid">
+            {% for course in courses %}
+            <article class="course-card">
+                <div class="icon">{{ course.icon }}</div>
+                <h3>{{ course.name }}</h3>
+                <p>{{ course.desc }}</p>
+                <a href="{{ url_for('course_detail', slug=course.slug) }}">{{ "Course Plan & Materials →" if lang == "en" else "RPS & Bahan Ajar →" }}</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section alt">
+    <div class="container">
+        <div class="section-heading">
+            <span>TRIDHARMA</span>
+            <h2>{{ "Academic Activities" if lang == "en" else "Aktivitas Akademik" }}</h2>
+        </div>
+        <div class="activity-grid">
+            {% for item in tridharma %}
+            <div class="activity-card">
+                <div class="icon">{{ item.icon }}</div>
+                <div><h3>{{ item.title }}</h3><p>{{ item.desc }}</p></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <span>{{ "LATEST WRITINGS" if lang == "en" else "TULISAN TERBARU" }}</span>
+            <h2>{{ "Writings & Publications" if lang == "en" else "Tulisan & Publikasi" }}</h2>
+            <p>{{ "Articles, opinion pieces, scientific materials, papers, and other academic documents are presented here." if lang == "en" else "Artikel, opini, materi ilmiah, makalah, atau dokumen akademik dapat ditampilkan di sini." }}</p>
+        </div>
+        {% if latest_writings %}
+        <div class="writing-grid">
+            {% for item in latest_writings %}
+            <div class="writing-card">
+                <div class="doc-icon">📄</div>
+                <div>
+                    <span class="meta">{{ item.category }}{% if item.year %} • {{ item.year }}{% endif %}</span>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                    <a href="{{ url_for('download_file', category='writings', filename=item.stored_name) }}">
+                        {{ "Download →" if lang == "en" else "Download →" }}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-box">{{ "No writings have been uploaded yet." if lang == "en" else "Belum ada tulisan yang diunggah." }}</div>
+        {% endif %}
+        <div class="top-space">
+            <a class="btn primary" href="{{ url_for('writings') }}">{{ "View All Writings" if lang == "en" else "Lihat Semua Tulisan" }}</a>
+        </div>
+    </div>
+</section>
+
+<section class="section dashboard">
+    <div class="container">
+        <div class="section-heading light">
+            <span>{{ "QUICK ACCESS" if lang == "en" else "AKSES CEPAT" }}</span>
+            <h2>{{ "Academic Portal" if lang == "en" else "Portal Akademik" }}</h2>
+        </div>
+        <div class="quick-links">
+            <a href="mailto:{{ profile.email }}"><strong>✉️</strong><span>{{ "Lecturer Email" if lang == "en" else "Email Dosen" }}</span><small>{{ profile.email }}</small></a>
+            <a href="{{ profile.siakad }}" target="_blank" rel="noopener"><strong>🎓</strong><span>SIAKAD Prisma</span><small>siap.prisma.ac.id</small></a>
+            <a href="{{ url_for('writings') }}"><strong>📚</strong><span>{{ "Writings" if lang == "en" else "Tulisan" }}</span><small>{{ "Articles & publications" if lang == "en" else "Artikel & publikasi" }}</small></a>
+            <a href="#matakuliah"><strong>📘</strong><span>{{ "Courses" if lang == "en" else "Perkuliahan" }}</span><small>{{ "Course plans & materials" if lang == "en" else "RPS & bahan ajar" }}</small></a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        © 2026 {{ profile.name }} • {{ profile.university }} •
+        <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+    </div>
+</footer>
+</body>
+</html>
