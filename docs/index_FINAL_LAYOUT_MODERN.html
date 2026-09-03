@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drs. Agus Santoso Budiharso, B.Sc., M.Sc. | Portal Dosen Teknik Geologi</title>
+<link rel="stylesheet" href="bilingual.css">
+<style>
+:root{--deep:#082a49;--deep2:#124f79;--ink:#112942;--sky:#69b9ef;--white:#fff;--muted2:#d7e9f7}
+body{background:#f6f8fb}
+.navbar{background:rgba(255,255,255,.97);backdrop-filter:blur(12px)}
+.nav-wrap{min-height:82px;gap:28px}
+.brand{display:flex;align-items:center;gap:12px;min-width:280px}
+.brand-logo{width:48px;height:48px;object-fit:contain;flex:0 0 auto}
+.brand-copy{display:flex;flex-direction:column;line-height:1.15}
+.brand-copy strong{font-size:16px;color:var(--ink);letter-spacing:.01em}
+.brand-copy small{font-size:12px;color:#68788c;margin-top:5px}
+.nav-links{gap:18px;flex-wrap:nowrap}
+.nav-links a{font-size:13.5px;white-space:nowrap;position:relative}
+.nav-links a:not(.siakad):after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:#1d79bb;transition:.22s}
+.nav-links a:not(.siakad):hover:after{right:0}
+.lang{margin-left:4px;background:#f3f7fa;border-color:#dbe5ed}
+.lang button{padding:8px 11px;font-size:12px}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#082a49 0%,#0c3b61 52%,#176189 100%);padding:76px 0 72px}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-170px;top:-230px;background:radial-gradient(circle,rgba(113,205,255,.24),rgba(113,205,255,0) 68%)}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.09);border-radius:50%;left:-250px;bottom:-290px}
+.hero-grid{position:relative;z-index:1;grid-template-columns:minmax(0,1.28fr) minmax(330px,.72fr);gap:68px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.17em;color:#9ed2f5}
+.eyebrow:before{content:"";width:30px;height:2px;background:#7ac8f5;border-radius:99px}
+.hero h1{max-width:850px;font-size:clamp(42px,5.1vw,66px);letter-spacing:-.035em;line-height:1.03;margin:18px 0 20px}
+.roleline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.hero h2{font-size:clamp(22px,2vw,29px);margin:0;color:#fff}
+.uni-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#e7f4fd;font-size:13px;background:rgba(255,255,255,.07)}
+.contact-row{display:flex;gap:16px;flex-wrap:wrap;margin:18px 0 0;color:#d8e8f4;font-size:14px}
+.contact-item{display:inline-flex;align-items:center;gap:7px}
+.hero .lead{max-width:780px;color:#e4eef6;font-size:16.5px;line-height:1.72;margin-top:25px}
+.actions{margin-top:30px;gap:12px}
+.btn{padding:12px 18px;border-radius:12px;transition:.2s;box-shadow:none}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.secondary{background:rgba(255,255,255,.05)}
+.btn.secondary:hover{background:rgba(255,255,255,.1)}
+
+.visual-card{position:relative;border-radius:28px;padding:26px;background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.24);box-shadow:0 28px 70px rgba(1,18,34,.28);overflow:hidden}
+.visual-card:before{content:"";position:absolute;width:210px;height:210px;border-radius:50%;right:-80px;top:-95px;background:rgba(107,202,255,.13)}
+.profile-top{display:flex;align-items:center;gap:20px;position:relative;z-index:1}
+.profile-photo-wrap{position:relative;flex:0 0 auto}
+.profile-photo{width:168px;height:168px;object-fit:cover;border-radius:24px;border:3px solid rgba(255,255,255,.82);box-shadow:0 16px 38px rgba(0,0,0,.26);display:block}
+.prisma-badge{position:absolute;right:-14px;bottom:-15px;width:66px;height:66px;border-radius:18px;background:#fff;padding:8px;box-shadow:0 8px 22px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center}
+.prisma-badge img{width:100%;height:100%;object-fit:contain}
+.profile-mini{min-width:0}
+.profile-mini .label{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#acd8f4;font-weight:900}
+.profile-mini h3{font-size:22px;line-height:1.25;margin:7px 0 7px;color:#fff}
+.profile-mini p{margin:0;color:#d8ebf8;font-size:14px}
+.focus-box{position:relative;z-index:1;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+.focus-box p{margin:0 0 14px;color:#eef7fc;line-height:1.65;font-size:14.5px}
+.chips{margin-top:10px}.chips span{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.08);padding:6px 10px}
+
+.section{padding:70px 0}.heading{max-width:720px}.heading h2{font-size:36px;letter-spacing:-.025em}.grid{gap:20px}.card{border-radius:20px;padding:24px;transition:.22s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,40,70,.08)}.card .icon{width:48px;height:48px;border-radius:14px;background:#edf6fd;display:flex;align-items:center;justify-content:center;font-size:25px}.card h3{font-size:18px;margin:15px 0 8px}.activity{border-radius:20px;padding:24px}
+footer{margin-top:0}
+
+@media(max-width:1080px){.nav-wrap{align-items:flex-start;padding:14px 0}.nav-links{flex-wrap:wrap;justify-content:flex-end}.brand{min-width:240px}.hero-grid{gap:36px}.profile-top{align-items:flex-start}.profile-photo{width:145px;height:145px}.profile-mini h3{font-size:19px}}
+@media(max-width:860px){.nav-wrap{display:block}.brand{margin-bottom:12px}.nav-links{margin-left:0;justify-content:flex-start}.hero{padding:54px 0}.hero-grid{grid-template-columns:1fr}.visual-card{max-width:620px}.hero h1{font-size:clamp(38px,9vw,58px)}.grid,.activity-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.container{width:min(100% - 28px,1160px)}.nav-links a{font-size:12.5px}.hero h1{font-size:39px}.profile-top{display:block}.profile-photo{width:175px;height:175px}.profile-mini{margin-top:28px}.grid,.activity-grid{grid-template-columns:1fr}.contact-row{display:grid;gap:8px}.section{padding:52px 0}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/logo-prisma.png" alt="Logo Universitas Prisma Manado">
+      <span class="brand-copy"><strong id="brand1">Dosen Teknik Geologi</strong><small>Universitas Prisma Manado</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" id="nHome">Beranda</a>
+      <a href="#profil" id="nProfile">Profil</a>
+      <a href="mata-kuliah.html" id="nCourses">Mata Kuliah</a>
+      <a href="#penelitian" id="nResearch">Penelitian</a>
+      <a href="#pengabdian" id="nService">Pengabdian</a>
+      <a href="tulisan.html" id="nWriting">Tulisan & Publikasi</a>
+      <a class="siakad" href="https://siap.prisma.ac.id" target="_blank">SIAKAD PRISMA ↗</a>
+      <span class="lang"><button id="btnID">🇮🇩 ID</button><button id="btnEN">🇬🇧 EN</button></span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="profil">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow" id="eyebrow">PORTAL AKADEMIK DOSEN</div>
+      <h1>Drs. Agus Santoso Budiharso, B.Sc., M.Sc.</h1>
+      <div class="roleline">
+        <h2 id="role">Dosen Teknik Geologi</h2>
+        <span class="uni-pill">Universitas Prisma Manado</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-item">✉ <span>agus.budiharso@prisma.ac.id</span></span>
+        <span class="contact-item">🪪 <span>NIDN: 1608086501</span></span>
+      </div>
+      <p class="lead" id="lead">Portal akademik untuk pembelajaran, RPS, bahan ajar, penelitian, pengabdian masyarakat, serta tulisan dan publikasi. Seluruh materi publik dapat diakses tanpa login.</p>
+      <div class="actions"><a class="btn primary" href="mata-kuliah.html" id="bCourses">Mata Kuliah</a><a class="btn secondary" href="tulisan.html" id="bWriting">Tulisan & Publikasi</a></div>
+    </div>
+
+    <aside class="visual-card">
+      <div class="profile-top">
+        <div class="profile-photo-wrap">
+          <img class="profile-photo" src="assets/foto-agus-budiharso.jpeg" alt="Foto Agus Santoso Budiharso">
+          <span class="prisma-badge"><img src="assets/logo-prisma.png" alt="Logo Prisma"></span>
+        </div>
+        <div class="profile-mini">
+          <div class="label" id="profileLabel">PROFIL AKADEMIK</div>
+          <h3>Agus Santoso Budiharso</h3>
+          <p id="profileRole">Dosen Teknik Geologi<br>Universitas Prisma Manado</p>
+        </div>
+      </div>
+      <div class="focus-box">
+        <p id="tagline">Geologi, GIS, penginderaan jauh, geomorfologi, kebencanaan, dan analisis spasial.</p>
+        <div class="chips"><span>GIS</span><span>REMOTE SENSING</span><span>GEOLOGY</span><span>DRR</span><span>GeoAI</span></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<section class="section" id="matakuliah"><div class="container"><div class="heading"><span id="teachTag">PEMBELAJARAN</span><h2 id="teachTitle">Mata Kuliah yang Diampu</h2><p id="teachIntro">Mahasiswa dapat membuka RPS dan bahan ajar tanpa akun.</p></div><div class="grid">
+<article class="card"><div class="icon">🗺️</div><h3 id="c1">Sistem Informasi Geografis (SIG)</h3><p id="d1">Analisis, pengelolaan, visualisasi, dan interpretasi data geospasial untuk geologi.</p><a href="mata-kuliah.html" id="r1">RPS & Bahan Ajar →</a></article>
+<article class="card"><div class="icon">⛰️</div><h3 id="c2">Geomorfologi</h3><p id="d2">Bentuklahan, proses geomorfik, morfometri, dan interpretasi bentang alam.</p><a href="mata-kuliah.html" id="r2">RPS & Bahan Ajar →</a></article>
+<article class="card"><div class="icon">📊</div><h3 id="c3">Manajemen Proyek</h3><p id="d3">Perencanaan, pelaksanaan, pengendalian, evaluasi, biaya, mutu, waktu, dan risiko proyek.</p><a href="mata-kuliah.html" id="r3">RPS & Bahan Ajar →</a></article>
+<article class="card"><div class="icon">🌋</div><h3 id="c4">Geologi Indonesia</h3><p id="d4">Tektonik, stratigrafi, vulkanisme, sumber daya, dan evolusi geologi Indonesia.</p><a href="mata-kuliah.html" id="r4">RPS & Bahan Ajar →</a></article>
+<article class="card"><div class="icon">🔬</div><h3 id="c5">Metode Penelitian Geologi</h3><p id="d5">Masalah penelitian, desain, pengumpulan data, analisis, interpretasi, dan penulisan ilmiah.</p><a href="mata-kuliah.html" id="r5">RPS & Bahan Ajar →</a></article>
+<article class="card"><div class="icon">🛰️</div><h3 id="c6">Penginderaan Jauh</h3><p id="d6">Citra satelit, DEM, analisis spektral, dan interpretasi data penginderaan jauh untuk geologi.</p><a href="mata-kuliah.html" id="r6">RPS & Bahan Ajar →</a></article>
+</div></div></section>
+
+<section class="section alt"><div class="container"><div class="heading"><span>TRIDHARMA</span><h2 id="acad">Aktivitas Akademik</h2></div><div class="activity-grid"><div class="activity"><div class="icon">🎓</div><h3 id="a1">Pengajaran</h3><p id="ad1">Pembelajaran geologi, GIS, penginderaan jauh, geomorfologi, penelitian, dan manajemen proyek.</p></div><div class="activity" id="penelitian"><div class="icon">🔎</div><h3 id="a2">Penelitian</h3><p id="ad2">Kegiatan penelitian di bidang geologi, geospasial, penginderaan jauh, dan kebencanaan.</p></div><div class="activity" id="pengabdian"><div class="icon">🤝</div><h3 id="a3">Pengabdian Masyarakat</h3><p id="ad3">Penerapan ilmu geologi dan teknologi geospasial untuk kebutuhan masyarakat dan pembangunan.</p></div></div></div></section>
+
+<footer><div class="container">© 2026 Agus Santoso Budiharso — <span id="foot">Portal Akademik Dosen Teknik Geologi</span> • Universitas Prisma Manado</div></footer>
+<script>
+const TXT={id:{title:'Drs. Agus Santoso Budiharso, B.Sc., M.Sc. | Portal Dosen Teknik Geologi',brand1:'Dosen Teknik Geologi',nHome:'Beranda',nProfile:'Profil',nCourses:'Mata Kuliah',nResearch:'Penelitian',nService:'Pengabdian',nWriting:'Tulisan & Publikasi',eyebrow:'PORTAL AKADEMIK DOSEN',role:'Dosen Teknik Geologi',lead:'Portal akademik untuk pembelajaran, RPS, bahan ajar, penelitian, pengabdian masyarakat, serta tulisan dan publikasi. Seluruh materi publik dapat diakses tanpa login.',bCourses:'Mata Kuliah',bWriting:'Tulisan & Publikasi',tagline:'Geologi, GIS, penginderaan jauh, geomorfologi, kebencanaan, dan analisis spasial.',profileRole:'Dosen Teknik Geologi<br>Universitas Prisma Manado',profileLabel:'PROFIL AKADEMIK',teachTag:'PEMBELAJARAN',teachTitle:'Mata Kuliah yang Diampu',teachIntro:'Mahasiswa dapat membuka RPS dan bahan ajar tanpa akun.',acad:'Aktivitas Akademik',a1:'Pengajaran',ad1:'Pembelajaran geologi, GIS, penginderaan jauh, geomorfologi, penelitian, dan manajemen proyek.',a2:'Penelitian',ad2:'Kegiatan penelitian di bidang geologi, geospasial, penginderaan jauh, dan kebencanaan.',a3:'Pengabdian Masyarakat',ad3:'Penerapan ilmu geologi dan teknologi geospasial untuk kebutuhan masyarakat dan pembangunan.',foot:'Portal Akademik Dosen Teknik Geologi',courses:[['Sistem Informasi Geografis (SIG)','Analisis, pengelolaan, visualisasi, dan interpretasi data geospasial untuk geologi.'],['Geomorfologi','Bentuklahan, proses geomorfik, morfometri, dan interpretasi bentang alam.'],['Manajemen Proyek','Perencanaan, pelaksanaan, pengendalian, evaluasi, biaya, mutu, waktu, dan risiko proyek.'],['Geologi Indonesia','Tektonik, stratigrafi, vulkanisme, sumber daya, dan evolusi geologi Indonesia.'],['Metode Penelitian Geologi','Masalah penelitian, desain, pengumpulan data, analisis, interpretasi, dan penulisan ilmiah.'],['Penginderaan Jauh','Citra satelit, DEM, analisis spektral, dan interpretasi data penginderaan jauh untuk geologi.']],resource:'RPS & Bahan Ajar →'},en:{title:'Drs. Agus Santoso Budiharso, B.Sc., M.Sc. | Geological Engineering Lecturer Portal',brand1:'Geological Engineering Lecturer',nHome:'Home',nProfile:'Profile',nCourses:'Courses',nResearch:'Research',nService:'Community Service',nWriting:'Writings & Publications',eyebrow:'LECTURER ACADEMIC PORTAL',role:'Lecturer in Geological Engineering',lead:'Academic portal for learning, semester course plans, teaching materials, research, community service, writings, and publications. All public materials are accessible without login.',bCourses:'Courses',bWriting:'Writings & Publications',tagline:'Geology, GIS, remote sensing, geomorphology, disaster studies, and spatial analysis.',profileRole:'Lecturer in Geological Engineering<br>Universitas Prisma Manado',profileLabel:'ACADEMIC PROFILE',teachTag:'TEACHING',teachTitle:'Courses Taught',teachIntro:'Students can access course plans and teaching materials without an account.',acad:'Academic Activities',a1:'Teaching',ad1:'Teaching in geology, GIS, remote sensing, geomorphology, research methods, and project management.',a2:'Research',ad2:'Research activities in geology, geospatial science, remote sensing, and disaster studies.',a3:'Community Service',ad3:'Application of geology and geospatial technologies to community needs and development.',foot:'Geological Engineering Lecturer Academic Portal',courses:[['Geographic Information Systems (GIS)','Analysis, management, visualization, and interpretation of geospatial data for geology.'],['Geomorphology','Landforms, geomorphic processes, morphometry, and landscape interpretation.'],['Project Management','Project planning, implementation, control, evaluation, cost, quality, time, and risk.'],['Geology of Indonesia','Tectonics, stratigraphy, volcanism, resources, and the geological evolution of Indonesia.'],['Geological Research Methods','Research problems, design, data collection, analysis, interpretation, and scientific writing.'],['Remote Sensing','Satellite imagery, DEMs, spectral analysis, and remote-sensing data interpretation for geology.']],resource:'Course Plan & Materials →'}};
+function applyLang(l){localStorage.setItem('portalLang',l);document.documentElement.lang=l;const t=TXT[l];document.title=t.title;['brand1','nHome','nProfile','nCourses','nResearch','nService','nWriting','eyebrow','role','lead','bCourses','bWriting','tagline','profileLabel','teachTag','teachTitle','teachIntro','acad','a1','ad1','a2','ad2','a3','ad3','foot'].forEach(k=>document.getElementById(k).textContent=t[k]);document.getElementById('profileRole').innerHTML=t.profileRole;t.courses.forEach((c,i)=>{document.getElementById('c'+(i+1)).textContent=c[0];document.getElementById('d'+(i+1)).textContent=c[1];document.getElementById('r'+(i+1)).textContent=t.resource});btnID.classList.toggle('active',l==='id');btnEN.classList.toggle('active',l==='en')}
+btnID.onclick=()=>applyLang('id');btnEN.onclick=()=>applyLang('en');applyLang(localStorage.getItem('portalLang')==='en'?'en':'id');
+</script>
+</body>
+</html>
